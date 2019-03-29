@@ -1,0 +1,71 @@
+@import '../../res/scss/colors.scss';
+@import '../../res/scss/mixins.scss';
+
+header{
+    width: calc(100% - 12em);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2em 6em;
+
+    @include mobile{
+        width: calc(100% - 2em);
+        padding: 0 1em;
+    }
+
+    nav{
+        display: inline-block;
+        position: relative;
+
+        @include mobile{
+            &:after{
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 25px;
+                height: 40px;
+                background-image: linear-gradient(to right, transparent , #fff);
+                pointer-events: none;
+            }
+        }
+
+        ul{
+            display: flex;
+            list-style: none;
+            justify-content: space-between;
+            width: 40vw;
+
+            @include mobile{
+                overflow-x: auto;
+                &::-webkit-scrollbar{ display: none; }
+            }
+            
+            li{
+                cursor: pointer;
+
+                @include mobile{
+                    white-space: nowrap;
+                    margin: 0 25px;
+
+                    &:last-of-type{
+                        padding-right: 30px;
+                    }
+                }
+
+                &:not(.active){
+                    opacity: .5;
+                }
+
+                &.active{
+                    border-bottom: 2px solid $accent;
+
+                    a{ 
+                        text-decoration: none;
+                        color: $neutral-text;
+                    }
+                }
+            }            
+        }
+    }
+}

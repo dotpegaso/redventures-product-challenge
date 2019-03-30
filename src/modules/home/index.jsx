@@ -18,9 +18,9 @@ class Home extends Component{
                         Model <span className={style.type}>{model}</span>
                     </p>
 
-                    <figure className={style.vehicleFigure}>
+                    <picture className={style.vehicleFigure}>
                         <img src={require('../../res/images/home/car-home.png')} alt={`Vehicle Model ${model}`}/>
-                    </figure>
+                    </picture>
 
                     <a className={style.begin} href="/engine">
                         Begin 

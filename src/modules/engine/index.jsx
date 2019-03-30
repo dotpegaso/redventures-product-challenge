@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
-import './style.scss';
+import Header from '../../components/header';
+import BottomBar from '../../components/bottom-bar';
+import style from './style.module.scss';
 
 class Engine extends Component{
     render(){
         return(
-            <p>Engine</p>
+            <section className={style.engine}>
+                <Header />
+                <BottomBar nextUrl={'color'} />
+            </section>
         )
     }
 }

@@ -13,12 +13,24 @@
         left: 50%;
         transform: translate( -50%, -50% );
 
+        @include mobile{
+            height: 20vh;
+            width: 100%;
+            padding: 0;
+            top: 40%;
+        }
+
         .intro{
             font-size: 30px;
             color: $primary;
             font-weight: 500;
             letter-spacing: 10px;
             padding-left: 8px;
+
+            @include mobile{
+                font-size: 18px;
+                padding-left: 40px;
+            }
         }
 
         .modelName{
@@ -29,10 +41,21 @@
             letter-spacing: 12px;
             line-height: 125px;
 
+            @include mobile{
+                font-size: 70px;
+                line-height: 60px;
+                white-space: nowrap;
+                padding-left: 35px;
+            }
+
             .type{
                 font-weight: 500;
                 color: $primary;
                 padding-left: 20px;
+
+                @include mobile{
+                    padding: 0;
+                }
             }
         }
 
@@ -43,6 +66,13 @@
             width: calc(100% - 30em);
             text-align: center;
             pointer-events: none;
+
+            @include mobile{
+                width: 100%;
+                top: 55px;
+
+                img{ width: 100%; }
+            }
         }
     }
     
@@ -60,6 +90,17 @@
         color: $neutral-text;
         bottom: 0;
         width: calc(100% - 30em);
+
+        img{ margin-left: 10px; }
+
+        @include mobile{
+            margin: 0 auto;
+            text-align: center;
+            padding: 0;
+            right: 0;
+            left: 0;
+            bottom: -100px;
+        }
     }
 
     footer{
@@ -69,6 +110,12 @@
         justify-content: space-between;
         width: calc(100% - 12em);
         padding: 2em 6em;
+
+        @include mobile{
+            padding: 20px;
+            width: calc(100% - 40px);
+            left: 0;
+        }
 
         .info{
             flex: 1;
@@ -87,6 +134,10 @@
 
                 .description{
                     padding-right: 20px;
+
+                    @include mobile{
+                        padding-right: 15px;
+                    }
                 }
              }
 
@@ -97,12 +148,21 @@
                 width: fit-content;
                 width: 100%;
 
+                @include mobile{
+                    font-size: 28px;
+                    font-weight: 500;
+                }
+
                 .speedUnit{ font-size: 14px }
             }
 
             .description{
                 width: fit-content;
                 border-bottom: 2px solid $primary;
+
+                @include mobile{
+                    font-size: 14px;
+                }
             }
 
         }

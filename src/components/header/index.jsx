@@ -8,7 +8,7 @@ import style from './style.module.scss';
 
 const Header = () => (
     <header>
-        <Link>
+        <Link to="/">
             <img src={logo} alt="Red Ventures Logo"/>
         </Link>
         <nav>

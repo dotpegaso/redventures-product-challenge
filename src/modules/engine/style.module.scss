@@ -3,18 +3,46 @@
 
 .engine{
 
+    @include mobile{ height: 100%; }
+
     .engineSelection{
         height: 70vh;
         width:100%;
         display: flex;
 
+        @include mobile{
+            flex-wrap: wrap;
+        }
+
         .engineImage, .avaibleEngines{
             width: 50%;
+
+            @include mobile{
+                width: 100%;
+            }
         }
 
         .engineImage{
             text-align: center;
-            img{ height: 100%; }
+
+            @include mobile{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 35vh;
+                width: 50vw;
+                margin: 0 auto;
+            }
+
+            img{ 
+                height: 100%;
+
+                @include mobile{
+                    transform: rotate(-90deg);
+                    height: initial;
+                    width: 100%;
+                }
+            }
         }
 
         .avaibleEngines{
@@ -24,6 +52,12 @@
                 font-size: 48px;
                 font-weight: 300;
                 color: $neutral-text;
+
+                @include mobile{
+                    font-size: 26px;
+                    position: absolute;
+                    top: 50px;
+                }
             }
 
             .engineDetails{
@@ -32,7 +66,9 @@
                 display: flex;
                 align-items: center;
 
-               
+                @include mobile{
+                    margin: 0 1em 5%;
+                }
 
                 .items{
                     display: flex;
@@ -44,6 +80,11 @@
                     margin: 15px 0;
                     font-weight: 300;
 
+                    @include mobile{
+                        padding-left: 15px;
+                        font-size: 22px;
+                    }
+
                     li{
                         strong{ font-weight: 500; }
                         opacity: .3;
@@ -53,6 +94,8 @@
                             font-size: 22px;
                             color: $opaque-text;
                             strong{ color: $neutral-text }
+
+                            @include mobile{ font-size: 14px; }
                         }
 
                         &:first-of-type{
@@ -73,6 +116,10 @@
                     position: relative;
                     width: 25px;
                     margin: 0 20px 0 100px;
+
+                    @include mobile{ 
+                        margin: 0 20px;
+                    }
 
                     &:after{
                         content: '';

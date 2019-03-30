@@ -13,7 +13,7 @@ class Engine extends Component{
                 <div className={style.engineSelection}>
                     
                     <figure className={style.engineImage}>
-                        <img src={require('../../res/images/engine/engine-2.png')} alt="Detailed engine"/>
+                        <img src={require('../../res/images/engine/engine-1.png')} alt="Detailed engine"/>
                     </figure>
 
                     <div className={style.avaibleEngines}>

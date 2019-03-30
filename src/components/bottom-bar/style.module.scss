@@ -27,7 +27,7 @@
             font-weight: 300;
             color: $primary;
         }
-    }
+    }   
 
     .modelType, .modelEngine{
         color: $neutral-text;
@@ -60,5 +60,15 @@
         font-weight: 500;
 
         img{ margin-left: 15px; }
+    }
+
+    @include mobile{
+        width: calc(100% - 40px);
+        justify-content: space-between;
+        padding: 10px 20px;
+
+        .modelType, .modelEngine, .modelColor, .modelWheel{
+            display: none;
+        }
     }
 }

@@ -1,0 +1,96 @@
+@import '../../res/scss/colors.scss';
+@import '../../res/scss/mixins.scss';
+
+.engine{
+
+    .engineSelection{
+        height: 70vh;
+        width:100%;
+        display: flex;
+
+        .engineImage, .avaibleEngines{
+            width: 50%;
+        }
+
+        .engineImage{
+            text-align: center;
+            img{ height: 100%; }
+        }
+
+        .avaibleEngines{
+
+            .title{
+                margin: 5%;
+                font-size: 48px;
+                font-weight: 300;
+                color: $neutral-text;
+            }
+
+            .engineDetails{
+                background: $neutral-content;
+                margin: 0 15% 5% 5%;
+                display: flex;
+                align-items: center;
+
+               
+
+                .items{
+                    display: flex;
+                    width: 80%;
+                    justify-content: space-between;
+                    align-items: center;
+                    list-style: none;
+                    font-size: 28px;
+                    margin: 15px 0;
+                    font-weight: 300;
+
+                    li{
+                        strong{ font-weight: 500; }
+                        opacity: .3;
+                        letter-spacing: 2px;
+
+                        &:not(:first-of-type){
+                            font-size: 22px;
+                            color: $opaque-text;
+                            strong{ color: $neutral-text }
+                        }
+
+                        &:first-of-type{
+                            strong{ color: $primary }
+                        }
+                    }
+                }
+
+                &.active{
+                    li{
+                        opacity: 1;
+                    }
+                }
+
+                .action{
+                    width: 30%;
+                    height: 25px;
+                    position: relative;
+                    width: 25px;
+                    margin: 0 20px 0 100px;
+
+                    &:after{
+                        content: '';
+                        background: #FFF;
+                        width: 25px;
+                        height: 25px;
+                        position: absolute;
+                        border-radius: 50%;
+                        right: 0px;
+                        cursor: pointer;
+                    }
+
+                    &:checked:after{
+                        background: $primary;
+                    }
+                }
+            }
+        }
+
+    }
+}

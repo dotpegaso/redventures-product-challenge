@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import Header from '../../components/header';
 import style from './style.module.scss';
 import Arrow from '../../res/images/utils/arrow.svg';
@@ -22,10 +23,10 @@ class Home extends Component{
                         <img src={require('../../res/images/home/car-home.png')} alt={`Vehicle Model ${model}`}/>
                     </picture>
 
-                    <a className={style.begin} href="/engine">
+                    <Link to="/engine" className={style.begin}>
                         Begin 
                         <img src={Arrow} alt="Arrow pointing right"/>
-                    </a>
+                    </Link>
 
                 </div>
 

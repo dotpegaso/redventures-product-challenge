@@ -1,0 +1,91 @@
+@import '../../res/scss/colors.scss';
+@import '../../res/scss/mixins.scss';
+
+.color{
+
+    .colorSelection{
+        display: flex;
+
+        @include mobile{
+            flex-wrap: wrap;
+        }
+
+        .vehicle, .avaibleColors{
+            width: 50%;
+
+            @include mobile{
+                width: 100%;
+            }
+        }
+
+        .vehicle{
+            
+            .color{
+                text-align: center;
+                transform: translateY(50px);    
+            }
+
+            p{
+                margin-left: 9em;
+                font-size: 18px;
+                font-weight: 500;
+
+                &:not(.name){
+                    color: $primary;
+                    margin-top: 10px;
+                }
+            }
+        }
+
+        .avaibleColors{
+
+            .intro{
+                
+                .title{
+                    margin: 5% 5% 2%;
+                    font-size: 48px;
+                    font-weight: 300;
+                }
+
+                .description{
+                    margin: 0 5%;
+                    color: $opaque-text;
+                    opacity: .5;
+                    letter-spacing: 0;
+                    width: 65%;
+                }
+            }
+
+            .colorSelector{
+                display: flex;
+                justify-content: space-between;
+                height: 40%;
+                align-items: center;
+                width: 50%;
+                margin-left: 40px;
+
+                .colorItem{
+                    position: relative;
+                    cursor: pointer;
+
+                    &:after{
+                        content: '';
+                        position: absolute;
+                        height: 48px;
+                        width: 48px;
+                        background: transparent;
+                        border-radius: 50%;
+                        border: 10px solid $neutral-radio;
+                        left: -9px;
+                        top: -9px;
+                    }
+
+                    &.active:after{
+                        border: 10px solid $active-radio;
+                        box-shadow: -4px 4px 13px rgba(0, 0, 0, 0.317538);
+                    }
+                }
+            }
+        }
+    }
+}

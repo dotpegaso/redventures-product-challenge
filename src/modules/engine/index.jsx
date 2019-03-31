@@ -2,8 +2,21 @@ import React, { Component } from 'react';
 import Header from '../../components/header';
 import BottomBar from '../../components/bottom-bar';
 import style from './style.module.scss';
+import { connect } from 'react-redux';
+import { updateValue } from '../../_actions';
 
 class Engine extends Component{
+
+    constructor(props){
+        super(props);
+
+        this.onUpdateValue = this.onUpdateValue.bind(this);
+    }
+
+    onUpdateValue = () =>{
+        this.props.onUpdateValue(40);
+    }
+
     render(){
         return(
             <section className={style.engine}>
@@ -39,7 +52,7 @@ class Engine extends Component{
                             <input className={style.action} type="radio" name="selectedEngine"/>
                         </div>
 
-                        <div className={style.engineDetails}>
+                        <div className={style.engineDetails} onClick={this.onUpdateValue}>
                             <ul className={style.items}>
                                 <li>75 <strong>P</strong></li>
                                 <li><strong>75</strong> kWh</li>
@@ -59,4 +72,9 @@ class Engine extends Component{
     }
 }
 
-export default Engine;
+const mapStateToProps = state => ( state );
+const mapActionsToProps = {
+    onUpdateValue: updateValue
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(Engine);

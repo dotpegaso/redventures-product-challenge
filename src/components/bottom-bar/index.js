@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
 import Arrow from '../../res/images/utils/arrow.svg';
 import style from './style.module.scss';
 
-const BottomBar = ({nextUrl}) => (
+const BottomBar = ({nextUrl, totalValue}) => (
     
     <section className={style.bottomBar}>
 
         <div className={style.total}>
             <small>Total</small>
-            <p className={style.value}>$63.000</p>
+            <p className={style.value}>${totalValue}</p>
         </div>
 
         <div className={style.modelType}>
@@ -36,4 +37,8 @@ const BottomBar = ({nextUrl}) => (
     </section>
 )
 
-export default BottomBar;
+const mapStateToProps = state => ({
+    totalValue: state.totalValue
+})
+
+export default connect(mapStateToProps)(BottomBar);

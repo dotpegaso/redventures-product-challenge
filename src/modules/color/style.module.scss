@@ -19,10 +19,20 @@
         }
 
         .vehicle{
+
+            @include mobile{
+                margin-top: 10%;
+            }
             
             .color{
                 text-align: center;
-                transform: translateY(50px);    
+                transform: translateY(50px);
+
+                img{
+                    @include mobile{
+                        width: 100%;
+                    }
+                }
             }
 
             p{
@@ -34,17 +44,40 @@
                     color: $primary;
                     margin-top: 10px;
                 }
+
+                @include mobile{
+                    width: 100%;
+                    margin: 0;
+                    text-align: center;                   
+
+                    &:not(.name){
+                        margin-top: 0;
+                    }
+
+                    &.name{
+                        margin-top: 10px;
+                    }
+                }
             }
         }
 
         .avaibleColors{
 
             .intro{
+
+                @include mobile{
+                    position: absolute;
+                    top: 50px;
+                }
                 
                 .title{
                     margin: 5% 5% 2%;
                     font-size: 48px;
                     font-weight: 300;
+
+                    @include mobile{
+                        font-size: 26px;
+                    }
                 }
 
                 .description{
@@ -53,6 +86,11 @@
                     opacity: .5;
                     letter-spacing: 0;
                     width: 65%;
+
+                    @include mobile{
+                        width: calc(100% - 10%);
+                        font-size: 12px;
+                    }
                 }
             }
 
@@ -63,6 +101,12 @@
                 align-items: center;
                 width: 50%;
                 margin-left: 40px;
+
+                @include mobile{
+                    width: calc(100% - 40px);
+                    height: 100%;
+                    margin: 10% auto 0;
+                }
 
                 .colorItem{
                     position: relative;
@@ -78,11 +122,23 @@
                         border: 10px solid $neutral-radio;
                         left: -9px;
                         top: -9px;
+
+                        @include mobile{
+                            height: 38px;
+                            width: 38px;
+                        }
                     }
 
                     &.active:after{
                         border: 10px solid $active-radio;
                         box-shadow: -4px 4px 13px rgba(0, 0, 0, 0.317538);
+                    }
+
+                    @include mobile{
+                        img{
+                            height: 40px;
+                            width: 40px;
+                        }
                     }
                 }
             }

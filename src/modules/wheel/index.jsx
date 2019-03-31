@@ -47,7 +47,7 @@ class Home extends Component{
 
                 </div>
 
-                <BottomBar />
+                <BottomBar nextUrl={'result'} />
 
             </section>
         )

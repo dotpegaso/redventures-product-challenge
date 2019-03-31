@@ -7,15 +7,35 @@
         height: 70vh;
         width:100%;
         display: flex;
+        
+        @include mobile{
+            flex-wrap: wrap;
+        }
 
         .vehicle, .invoice{
             width: 50%;
+
+            @include mobile{
+                width: 100%;
+            }
+    
         }
 
         .vehicle{
             display: flex;
             justify-content: center;
             align-items: center;
+
+            @include mobile{
+                height: 35vh;
+                width: 80%;
+                margin: 40px auto 0 auto;
+                
+                img{
+                    height: initial;
+                    width: 100%;
+                }
+            }
         }
 
         .invoice{
@@ -24,6 +44,10 @@
                 opacity: .3; 
                 margin: 20px 0 20px 5%;
                 width: calc(90% - 10%);
+
+                @include mobile{
+                    width: calc(100% - 10%);
+                }
             }
             
             .title{
@@ -51,6 +75,11 @@
                 font-weight: 500;
                 font-size: 18px;
 
+                @include mobile{
+                    width: calc(100% - 10%);
+                    font-size: 14px;
+                }
+
                 .value{ color: $primary; }
 
                 &.details{
@@ -60,6 +89,10 @@
                         width: 100%;
                         display: flex;
                         justify-content: space-between;
+
+                        @include mobile{
+                            margin: 10px 0;
+                        }
                     }
                 }
 

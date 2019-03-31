@@ -15,12 +15,32 @@
             width: 100%;
             font-weight: 300;
             text-align: center;
+
+            @include mobile{
+                position: absolute;
+                top: 70px;
+                text-align: left;
+                font-size: 26px;
+                width: initial;
+                left: 0;
+                padding-left: 1em;
+            }
         }
 
         .container{
             width: 100%;
             display: flex;
             justify-content: space-evenly;
+
+            @include mobile{
+                position: absolute;
+                overflow-x: auto;
+                justify-content: flex-start;
+                top: 33.3%;
+                left: 0;
+
+                &::-webkit-scrollbar{ display: none; }
+            }
 
             .wheel{
                 opacity: .5;
@@ -44,6 +64,10 @@
                 &:not(.active){
                     cursor: pointer;
                     .description{ display: none; }
+                }
+
+                @include mobile{
+                    img{ width: 220px; }
                 }
             }
         }

@@ -1,0 +1,86 @@
+@import '../../res/scss/colors.scss';
+@import '../../res/scss/mixins.scss';
+
+.result{
+
+    .container{
+        height: 70vh;
+        width:100%;
+        display: flex;
+
+        .vehicle, .invoice{
+            width: 50%;
+        }
+
+        .vehicle{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .invoice{
+
+            hr{ 
+                opacity: .3; 
+                margin: 20px 0 20px 5%;
+                width: calc(90% - 10%);
+            }
+            
+            .title{
+                margin: 5%;
+                font-size: 48px;
+                font-weight: 300;
+                color: $neutral-text;
+                width: fit-content;
+
+                @include mobile{
+                    font-size: 26px;
+                    position: absolute;
+                    top: 50px;
+                }
+
+                p{ width: fit-content; }
+            }
+
+            .item{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin-left: 5%;
+                width: calc(90% - 10%);
+                font-weight: 500;
+                font-size: 18px;
+
+                .value{ color: $primary; }
+
+                &.details{
+
+                    .detailedItem{
+                        margin: 15px 0;
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                }
+
+                &.finalPrice{
+                    font-size: 28px;
+                }
+            }
+
+            .rebuild{
+                margin-top: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px 0;
+                text-transform: uppercase;
+                
+                p{letter-spacing: 9px}
+
+                img{ margin-left: 20px; }
+            }
+        }
+
+    }
+}

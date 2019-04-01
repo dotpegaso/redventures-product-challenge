@@ -26,12 +26,14 @@
             letter-spacing: 3.75px;
             font-weight: 300;
             color: $primary;
+            width: 140px;
         }
     }   
 
     .modelType, .modelEngine{
         color: $neutral-text;
         font-weight: 500;
+        width: 60px;
     }
 
     .modelEngine{
@@ -58,8 +60,16 @@
         align-items: center;
         color: $neutral-text;
         font-weight: 500;
+        letter-spacing: 2px;
 
-        img{ margin-left: 15px; }
+        @include mobile{
+            margin-right: 10px;
+        }
+
+        img{ 
+            margin-left: 15px;
+            @include bounce;
+        }
     }
 
     @include mobile{

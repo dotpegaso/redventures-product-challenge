@@ -4,6 +4,12 @@
     }
 }
 
+@mixin iphone5{
+    @media (max-width: 320px){
+        @content
+    }
+}
+
 @mixin fadeIn($duration: 1s, $y: 20px){
     opacity: .1;
     transition-duration: .2s;

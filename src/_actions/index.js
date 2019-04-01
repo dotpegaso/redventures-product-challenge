@@ -27,3 +27,7 @@ export function updateColor(payload) {
   return { type: "UPDATE_COLOR", payload }
 }
 
+export function updateWheel(payload) {
+  return { type: "UPDATE_WHEEL", payload }
+}
+

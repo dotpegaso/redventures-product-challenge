@@ -25,7 +25,8 @@ class BottomBar extends Component{
 
         let { nextUrl, car } = this.props;
         let { data } = this.state;
-        let total = Object.values(car.total).reduce((a,b) => a + b);
+        let total = Object.values(car.total).reduce((a,b) => a + b)
+        console.log( car.wheel )
 
         return(
 
@@ -50,9 +51,7 @@ class BottomBar extends Component{
                 </figure>
 
                 <figure className={style.modelWheel}>
-                    { car.wheel.label && 
-                        <img src={require('../../res/images/wheel/wheel-gray-grafitti.png')} alt={`Vehicle Wheel}`}/>
-                    }
+                    { car.wheel.label && <img src={car.wheel.thumb} alt={`Vehicle Wheel}`}/> }
                 </figure>
 
                 <Link to={`/${nextUrl}`} className={style.next}>

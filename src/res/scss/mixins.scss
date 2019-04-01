@@ -3,3 +3,38 @@
         @content
     }
 }
+
+@mixin fadeIn($duration: 1s){
+    opacity: 0;
+    transition-duration: .2s;
+    animation: fadeIn $duration ease forwards;
+
+    @keyframes fadeIn{
+        0%{
+            opacity: 0;
+            transform: translateY(20px)
+        }
+        100%{
+            opacity: 1;
+            transform: none;
+        }
+    }
+}
+
+@mixin bounce($duration: 1s){
+
+    transition-duration: .2s;
+    animation: bounce $duration ease infinite;
+
+    @keyframes bounce {
+        0%{
+            transform: translateX(0)
+        }
+        20%{
+            transform: translateX(10px)
+        }
+        100%{
+            transform: translateX(0)
+        }       
+    }
+}

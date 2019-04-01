@@ -10,7 +10,7 @@ class Home extends Component{
 
         return(
             <section className={style.home}>
-                <Header />
+                <Header parentStyle={style.fade}/>
 
                 <div className={style.showcase}>
 

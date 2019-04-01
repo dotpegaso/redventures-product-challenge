@@ -31,3 +31,7 @@ export function updateWheel(payload) {
   return { type: "UPDATE_WHEEL", payload }
 }
 
+export function rebuild(){
+  return{ type: "REBUILD" }
+}
+

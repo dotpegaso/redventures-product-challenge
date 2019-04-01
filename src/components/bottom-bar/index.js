@@ -26,7 +26,6 @@ class BottomBar extends Component{
         let { nextUrl, car } = this.props;
         let { data } = this.state;
         let total = Object.values(car.total).reduce((a,b) => a + b)
-        console.log( car.wheel )
 
         return(
 

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-
+import { connect } from 'react-redux';
 import logo from '../../res/images/utils/RV-logo.svg';
-
 import style from './style.module.scss';
+import { rebuild } from '../../_actions';
 
 
 const Header = () => (
     <header>
-        <Link to="/">
+        <Link to="/" onClick={() => this.props.onRebuild()}>
             <img src={logo} alt="Red Ventures Logo"/>
         </Link>
         <nav>
@@ -23,4 +23,9 @@ const Header = () => (
     </header>
 )
 
-export default Header;
+
+const mapActionsToProps = {
+    onRebuild: rebuild
+}
+
+export default connect(null, mapActionsToProps)(Header);

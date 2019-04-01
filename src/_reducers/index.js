@@ -2,7 +2,7 @@ const globalState = {
   jsonData: false,
   car: {
     model: 'R',
-    engine: { type: '', kwh: '', price: 0 },
+    engine: { type: '', kwh: '', range: '', price: 0 },
     color: { id: '', label: '', dot: '', price: 0 },
     wheel: { label: '', thumb: '', price: 0 },
     total: { engine: 0, color: 0, wheel: 0}
@@ -53,6 +53,19 @@ const rootReducer = (state = globalState, action) => {
           wheel: action.payload.total
         },
         wheel: action.payload.wheel
+      }
+    }
+  }
+
+  if (action.type === "REBUILD"){
+    return{
+      ...state,
+      car: {
+        model: 'R',
+        engine: { type: '', kwh: '', range: '', price: 0 },
+        color: { id: '', label: '', dot: '', price: 0 },
+        wheel: { label: '', thumb: '', price: 0 },
+        total: { engine: 0, color: 0, wheel: 0}
       }
     }
   }

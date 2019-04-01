@@ -19,10 +19,10 @@ class Engine extends Component{
         this.onUpdateEngine = this.onUpdateEngine.bind(this);
     }
 
-    onUpdateEngine = ({price, type, kwh}, index) => {
+    onUpdateEngine = ({price, type, kwh, range}, index) => {
         const payload = {
             total: price,
-            engine: {type, kwh}
+            engine: {type, kwh, range, price}
         }
         
         this.props.onUpdateEngine(payload);

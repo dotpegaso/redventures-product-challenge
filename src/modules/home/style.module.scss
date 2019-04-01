@@ -3,6 +3,10 @@
 
 .home{
 
+    .fade{
+        @include fadeIn;
+    }
+
     .showcase{
         width: calc(100% - 30em);
         padding: 0 15em;
@@ -26,6 +30,7 @@
             font-weight: 500;
             letter-spacing: 10px;
             padding-left: 8px;
+            @include fadeIn(1.2s);
 
             @include mobile{
                 font-size: 18px;
@@ -40,6 +45,7 @@
             text-transform: uppercase;
             letter-spacing: 12px;
             line-height: 125px;
+            @include fadeIn(1.4s);
 
             @include mobile{
                 font-size: 70px;
@@ -66,6 +72,7 @@
             width: calc(100% - 30em);
             text-align: center;
             pointer-events: none;
+            @include fadeIn(.8s);
 
             @include mobile{
                 width: 100%;
@@ -90,8 +97,13 @@
         color: $neutral-text;
         bottom: 0;
         width: calc(100% - 30em);
+        @include fadeIn;
 
-        img{ margin-left: 10px; }
+        img{ 
+            margin-left: 10px;
+            @include bounce;
+            animation-delay: 1s;
+        }
 
         @include mobile{
             margin: 0 auto;
@@ -121,16 +133,19 @@
             flex: 1;
             display: flex;
             flex-wrap: wrap;
+            @include fadeIn(1.2s);
             
             &:nth-child(2){ 
                 flex: 2; 
                 justify-content: center;
                 text-align: center;
+                @include fadeIn(1.2s);
             }
 
             &:nth-child(3){
                 justify-content: flex-end;
                 text-align: right;
+                @include fadeIn(1.2s);
 
                 .description{
                     padding-right: 20px;

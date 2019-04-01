@@ -1,44 +1,76 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import Arrow from '../../res/images/utils/arrow.svg';
 import style from './style.module.scss';
+import { formatter } from '../../res/scripts/filters';
 
-const BottomBar = ({nextUrl, totalValue}) => (
-    
-    <section className={style.bottomBar}>
+class BottomBar extends Component{
 
-        <div className={style.total}>
-            <small>Total</small>
-            <p className={style.value}>${totalValue}</p>
-        </div>
+    constructor(props){
+        super(props);
+        
+        this.state = {
+            data: this.props.data
+        }
+    }
+        
+    componentDidUpdate() {
+        if (this.props.data !== this.state.data) {
+            this.setState({ data: this.props.data })
+        }
+    }
 
-        <div className={style.modelType}>
-            Model R
-        </div>
+    render(){
 
-        <div className={style.modelEngine}>
-            75<span className={style.detail}>P</span>
-        </div>
+        let { nextUrl, car } = this.props;
+        let { data } = this.state;
+        let total = Object.values(car.total).reduce((a,b) => a + b);
 
-        <figure className={style.modelColor}>
-            <img src={require('../../res/images/utils/dot-red.png')} alt={`Vehicle Color}`}/>
-        </figure>
+        return(
 
-        <figure className={style.modelWheel}>
-            <img src={require('../../res/images/wheel/wheel-gray-grafitti.png')} alt={`Vehicle Wheel}`}/>
-        </figure>
+            <section className={style.bottomBar}>
 
-        <Link to={`/${nextUrl}`} className={style.next}>
-            next
-            <img src={Arrow} alt="Arrow pointing right"/>
-        </Link>
+                <div className={style.total}>
+                    <small>Total</small>
+                    <p className={style.value}>{formatter(data.price + total)}</p>
+                </div>
 
-    </section>
-)
+                <div className={style.modelType}>
+                    Model {car.model}
+                </div>
+
+                <div className={style.modelEngine}>
+                    {car.engine.kwh}
+                    <span className={style.detail}>{car.engine.type}</span>
+                </div>
+
+                <figure className={style.modelColor}>
+                    { car.color.label && 
+                        <img src={require('../../res/images/utils/dot-red.png')} alt={`Vehicle Color}`}/>
+                    }                    
+                </figure>
+
+                <figure className={style.modelWheel}>
+                    { car.wheel.label && 
+                        <img src={require('../../res/images/wheel/wheel-gray-grafitti.png')} alt={`Vehicle Wheel}`}/>
+                    }
+                </figure>
+
+                <Link to={`/${nextUrl}`} className={style.next}>
+                    next
+                    <img src={Arrow} alt="Arrow pointing right"/>
+                </Link>
+
+            </section>
+
+        )
+    }
+}
 
 const mapStateToProps = state => ({
-    totalValue: state.totalValue
+    data: state.jsonData,
+    car: state.car
 })
 
 export default connect(mapStateToProps)(BottomBar);

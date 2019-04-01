@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
+import { connect } from 'react-redux';
+import { apiRequest } from '../_actions';
 import '../res/scss/main.scss';
-
 import Home from './home';
 import Engine from './engine';
 import Color from './color';
@@ -10,16 +10,12 @@ import Wheel from './wheel';
 import Result from './result';
 
 class App extends Component {
+
+  componentDidMount(){
+    this.props.onApiRequest();
+  }
  
   render() {
-
-    async function fetchData(){
-      const response =  await fetch('https://next.json-generator.com/api/json/get/41ORKNZDU').then( response => response.json() );
-      console.log(response)
-    }
-
-    fetchData();
-
     return (
       <Router>
         <Route exact path="/" component={Home} />
@@ -32,4 +28,9 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ( state );
+const mapActionsToProps = {
+  onApiRequest: apiRequest
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(App);

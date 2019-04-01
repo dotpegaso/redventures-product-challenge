@@ -24,6 +24,7 @@
 
         .engineImage{
             text-align: center;
+            @include fadeIn(1s, 20px);
 
             @include mobile{
                 display: flex;
@@ -66,6 +67,7 @@
                 display: flex;
                 align-items: center;
                 position: relative;
+                cursor: pointer;
 
                 @include mobile{
                     margin: 0 1em 5%;
@@ -133,9 +135,9 @@
 
                     @include mobile{ 
                         margin: 0 20px;
-                    }
+                    }                    
 
-                    &:after{
+                    &:after, &:before{
                         content: '';
                         background: #FFF;
                         width: 25px;
@@ -146,8 +148,14 @@
                         cursor: pointer;
                     }
 
+                    &::before{
+                        background: #fff;
+                    }
+
                     &:checked:after{
                         background: $primary;
+
+                        @include grow(25px, 25px);
                     }
                 }
             }

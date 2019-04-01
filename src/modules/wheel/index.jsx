@@ -41,8 +41,8 @@ class Wheel extends Component{
             let wheel = data.wheels.items[0];
 
             data.wheels.items[0].thumb = wheelMetalic;
-            data.wheels.items[1].thumb = wheelGrey;
-            data.wheels.items[2].thumb = wheelCarbon;
+            data.wheels.items[1].thumb = wheelCarbon;
+            data.wheels.items[2].thumb = wheelGrey;
 
             this.onUpdateWheel({...wheel}, 0);
             this.setState({ jsonData: data });
@@ -75,7 +75,7 @@ class Wheel extends Component{
                                         onClick={() => this.onUpdateWheel({...wheel}, index)}
                                         key={index}
                                     >
-                                        <img src={require('../../res/images/wheel/wheel-metalic.png')} alt=""/>
+                                        <img src={wheel.thumb} alt="Wheel model"/>
 
                                         <figcaption  className={style.description}>
                                             <p>{wheel.label}</p>

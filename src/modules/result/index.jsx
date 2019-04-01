@@ -73,7 +73,7 @@ class Result extends Component{
 
                                 <div className={style.detailedItem}>
                                     <p className={style.desc}>
-                                        {`${car.engine.kwh} ${car.engine.type} - ${car.engine.kwh} KWh ${car.engine.range} miles range`}
+                                        {`${car.engine.kwh} ${car.engine.type} - ${car.engine.kwh} KWh - ${car.engine.range} miles range`}
                                     </p>
                                     <p className={style.value}>
                                         {`${car.engine.price > 0 ? formatter(car.engine.price) : 'Included'}`}
@@ -109,7 +109,7 @@ class Result extends Component{
 
                             <Link to="/" onClick={this.onRebuild} className={style.rebuild}>
                                 <p>Rebuild</p>
-                                <img src={require('../../res/images/result/rebuild.svg')} alt=""/>
+                                <img src={require('../../res/images/result/rebuild.svg')} alt="Rebuild link"/>
                             </Link>
                         
                         </div>

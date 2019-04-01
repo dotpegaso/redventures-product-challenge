@@ -75,7 +75,7 @@ class Color extends Component{
 
                         <div className={style.vehicle}>
                             <figure className={style.color}>
-                                <img src={colors.items[activeColor].vehicle} alt=""/>
+                                <img src={colors.items[activeColor].vehicle} alt="Selected vehicle"/>
                             </figure>
 
                             <p className={style.name}>{ colors.items[activeColor].label }</p>
@@ -105,7 +105,7 @@ class Color extends Component{
                                             onClick={() => this.onUpdateColor({...color}, index)}
                                             key={index}
                                         >
-                                            <img src={color.dot} alt=""/>
+                                            <img src={color.dot} alt={color.label}/>
                                         </div>                                        
                                     ))
                                 }

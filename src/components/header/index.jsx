@@ -6,8 +6,8 @@ import style from './style.module.scss';
 import { rebuild } from '../../_actions';
 
 
-const Header = () => (
-    <header>
+const Header = ({parentStyle}) => (
+    <header className={`${parentStyle}`}>
         <Link to="/" onClick={() => this.props.onRebuild()}>
             <img src={logo} alt="Red Ventures Logo"/>
         </Link>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import Arrow from '../../res/images/utils/arrow.svg';
 import style from './style.module.scss';
-import { formatter } from '../../res/scripts/filters';
+import { CountUp } from 'countup.js';
 
 class BottomBar extends Component{
 
@@ -11,21 +11,29 @@ class BottomBar extends Component{
         super(props);
         
         this.state = {
-            data: this.props.data
+            data: false,
+            car: false
         }
     }
         
     componentDidUpdate() {
-        if (this.props.data !== this.state.data) {
-            this.setState({ data: this.props.data })
+        let {data, car} = this.props;
+        let total = Object.values(car.total).reduce((a,b) => a + b) + data.price;
+        let countUp = new CountUp('total', data.price , { startVal: total - 3000, prefix: '$' });
+
+        if (data !== this.state.data) {
+            countUp.start()
+            this.setState({ data: data })
+        }
+
+        if( car !== this.state.car ){
+            countUp.update(total)
         }
     }
 
     render(){
 
         let { nextUrl, car } = this.props;
-        let { data } = this.state;
-        let total = Object.values(car.total).reduce((a,b) => a + b)
 
         return(
 
@@ -33,7 +41,7 @@ class BottomBar extends Component{
 
                 <div className={style.total}>
                     <small>Total</small>
-                    <p className={style.value}>{formatter(data.price + total)}</p>
+                    <p id="total" className={style.value}></p>
                 </div>
 
                 <div className={style.modelType}>

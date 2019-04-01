@@ -3,3 +3,57 @@
         @content
     }
 }
+
+@mixin fadeIn($duration: 1s, $y: 20px){
+    opacity: .1;
+    transition-duration: .2s;
+    animation: fadeIn $duration ease forwards;
+
+    @keyframes fadeIn{
+        0%{
+            opacity: 0;
+            transform: translate(0, $y)
+        }
+        100%{
+            opacity: 1;
+            transform: none;
+        }
+    }
+}
+
+@mixin bounce($duration: 3s){
+
+    transition-duration: .2s;
+    animation: bounce $duration ease infinite;
+
+    @keyframes bounce {
+        0%{
+            transform: translateX(0)
+        }
+        5%{
+            transform: translateX(10px)
+        }
+        15%{
+            transform: translateX(0)
+        }
+        100%{
+            transform: translateX(0)
+        }       
+    }
+}
+
+@mixin grow($height: 10px, $width: 10px, $duration: .2s){
+
+    transition-duration: .2s;
+    animation: grow $duration ease forwards;
+
+    @keyframes grow {
+        0%{
+            transform: scale(0)
+        }
+        100%{
+            transform: scale(1)
+        }        
+    }
+
+}

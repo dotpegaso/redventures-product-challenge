@@ -8,6 +8,10 @@ header{
     justify-content: space-between;
     padding: 2em 6em;
 
+    &.fade{
+        @include fadeIn;
+    }
+
     @include mobile{
         width: calc(100% - 2em);
         padding: 0 1em;

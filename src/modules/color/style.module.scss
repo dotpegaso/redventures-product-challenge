@@ -19,8 +19,10 @@
         }
 
         .vehicle{
+            @include fadeIn;
 
             @include mobile{
+                height: fit-content;
                 margin-top: 10%;
             }
             
@@ -62,6 +64,7 @@
         }
 
         .avaibleColors{
+            
 
             .intro{
 
@@ -95,6 +98,7 @@
             }
 
             .colorSelector{
+                @include fadeIn(1.5s);
                 display: flex;
                 justify-content: space-between;
                 height: 40%;
@@ -129,9 +133,14 @@
                         }
                     }
 
-                    &.active:after{
-                        border: 10px solid $active-radio;
-                        box-shadow: -4px 4px 13px rgba(0, 0, 0, 0.317538);
+                    &.active{
+                        transition-duration: .2s;
+                        transform: scale(1.2);                        
+
+                        &:after{
+                            border: 10px solid $active-radio;
+                            box-shadow: -4px 4px 13px rgba(0, 0, 0, 0.317538);
+                        }
                     }
 
                     @include mobile{

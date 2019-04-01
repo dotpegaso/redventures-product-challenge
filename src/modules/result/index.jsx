@@ -107,11 +107,9 @@ class Result extends Component{
                                 <p className={style.value}>{formatter(data.price + total)}</p>
                             </div>
 
-                            <Link to="/" onClick={this.onRebuild}>
-                                <div className={style.rebuild}>
-                                    <p>Rebuild</p>
-                                    <img src={require('../../res/images/result/rebuild.svg')} alt=""/>
-                                </div>
+                            <Link to="/" onClick={this.onRebuild} className={style.rebuild}>
+                                <p>Rebuild</p>
+                                <img src={require('../../res/images/result/rebuild.svg')} alt=""/>
                             </Link>
                         
                         </div>

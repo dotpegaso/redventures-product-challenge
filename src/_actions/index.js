@@ -23,7 +23,7 @@ export function updateEngine(payload) {
   return { type: "UPDATE_ENGINE", payload }
 }
 
-export function updatecolor(payload) {
+export function updateColor(payload) {
   return { type: "UPDATE_COLOR", payload }
 }
 

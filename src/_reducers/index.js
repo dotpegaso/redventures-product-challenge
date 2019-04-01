@@ -3,7 +3,7 @@ const globalState = {
   car: {
     model: 'R',
     engine: { type: '', kwh: '', price: 0 },
-    color: { label: '', price: 0 },
+    color: { id: '', label: '', dot: '', price: 0 },
     wheel: { label: '', price: 0 },
     total: { engine: 0, color: 0, wheel: 0}
   }
@@ -34,8 +34,11 @@ const rootReducer = (state = globalState, action) => {
       ...state,
       car: {
         ...state.car,
-        total: action.payload.total,
-        color: action.payload.engine
+        total: {
+          ...state.car.total,
+          color: action.payload.total
+        },
+        color: action.payload.color
       }
     }
   }

@@ -46,9 +46,7 @@ class BottomBar extends Component{
                 </div>
 
                 <figure className={style.modelColor}>
-                    { car.color.label && 
-                        <img src={require('../../res/images/utils/dot-red.png')} alt={`Vehicle Color}`}/>
-                    }                    
+                    { car.color.dot && <img src={car.color.dot} alt={`Vehicle Color}`}/> }
                 </figure>
 
                 <figure className={style.modelWheel}>
